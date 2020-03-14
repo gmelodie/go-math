@@ -15,12 +15,8 @@ func NewMatrix(nrows, ncols int) (matrix, error) {
 		return m, errors.New("Invalid dimensions (too big)")
 	}
 
-	if nrows < 0 || ncols < 0 {
+	if nrows <= 0 || ncols <= 0 {
 		return m, errors.New("Invalid dimensions (negative)")
-	}
-
-	if nrows == 0 && ncols == 0 {
-		return m, errors.New("Invalid dimensions (both zero)")
 	}
 
 	m.data = make([]float64, nrows*ncols)
